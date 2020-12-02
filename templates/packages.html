@@ -1,0 +1,31 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block Content %}
+<table class="table table-dark">
+    <th>Name</th>
+    <th>Price</th>
+    <th>StartDate</th>
+    <th>End date</th>
+    {% for i in package %}
+        <tr>
+            <td>
+                {{i.Name}}
+            </td>
+            <td>
+                {{i.Price}}
+            </td>
+            <td>
+                {{i.StartDate}}
+            </td>
+            <td>
+                {{i.EndDate}}
+            </td>
+            <td>
+                <a href="{% url 'ViewPackage' i.id %}" class="btn btn-primary">View</a>
+            </td>
+            
+        </tr>
+    {% endfor %}
+</table>
+{% endblock Content %}
+    

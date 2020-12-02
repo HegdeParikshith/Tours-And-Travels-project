@@ -1,0 +1,55 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block Content %}
+{% csrf_token %}
+<div class="container">
+    <div class="card card-head">
+        <h5 class="text text-dark">
+            Total Employees : {{TotalEmployee}}
+        </h5>
+
+    </div>
+</div>
+
+   <br>
+   <br>
+<div class="container">
+    <div class="col col-lg">
+        <form action="" method="GET">
+            {{myFilter.form}}
+
+            <button class="btn btn-primary" type="submit">
+    
+                Search
+            </button>
+        </form>
+<br><br>
+    </div>
+    <table class="table table-hover table-dark">
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Branch</th>
+        
+            
+            {% for i in Employee %}
+            <tr>
+
+                <td>{{i.Name}}</td>
+                <td>{{i.Phone}}</td>
+                <td>{{i.branch}}</td>
+                <td>
+
+                    <a href="{% url 'emp' i.id  %}" class="btn btn-primary">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+                
+        
+
+    </table>
+</div>
+
+
+{% endblock Content %}
+    

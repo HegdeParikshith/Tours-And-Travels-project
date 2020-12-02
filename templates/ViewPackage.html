@@ -1,0 +1,18 @@
+{% extends 'main.html' %}]
+{% load static %}
+{% block Content %}
+<div class="container">
+    <img src="{{VP.Image}}" alt="">
+    <hr>
+    <p class="font-weight-bold">{{VP.Discription}}</p>
+    <br>
+    <p class="font-weight-normal"><strong>Start Date: </strong>{{VP.StartDate}}</p>
+    <p class="font-weight-normal"><strong>End Date:</strong> {{VP.EndDate}}</p>  
+    <hr>
+    <p class="font-weight-bold">Price :{{VP.Price}}Rs.</p>
+</div>
+
+
+
+
+{% endblock Content %}

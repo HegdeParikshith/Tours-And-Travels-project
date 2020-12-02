@@ -1,0 +1,25 @@
+{% load static %}
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand text-success" href="#">Nesara tours</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'Home' %}">Home <span class="sr-only">(current)</span></a>
+            <!-- <a class="nav-item nav-link active" href="#">About us</a> -->
+            <a class="nav-item nav-link active" href="{% url 'packages' %}">Packages</a>
+            <a class="nav-item nav-link active" href="{% url 'branch' %}">Branch</a>
+            <a class="nav-item nav-link active" href="{% url 'employee' %}">Employees</a>
+            <a class="nav-item nav-link active" href="{% url 'customer' %}">Customer</a>
+            <a class="nav-item nav-link active" href="{% url 'Tours' %}">Tours</a>
+            <a class="nav-item nav-link active" href="{% url 'Report' %}">Report</a>
+             <!-- <a class="nav-item nav-link disabled" href="#">Disabled</a>  -->
+            </div> 
+          </div>
+          <p class="text-white text-justify font-weight-bold">
+            Welcome {{request.user}}</p>
+          <p><a href="{% url 'logout' %}" href="text-justify">Log Out</a></p>
+      </nav> 
+      

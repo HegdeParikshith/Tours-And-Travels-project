@@ -1,0 +1,100 @@
+{% extends 'main.html' %}
+
+{% block Content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="card card-head bg-primary">
+                <h5 class="text-center">Total clients</h5>
+    
+            </div>
+            <div class="card card-text">
+                <h4 class="text-center">{{TotalClients}}</h4>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card card-head bg-success">
+                <h5 class="text-center">Active clients</h5>
+            </div>
+            <div class="card card-text">
+                <h4 class="text-center">{{ActiveClients}}</h4>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card card-head bg-danger">
+                <h5 class="text-center">Not verified clients</h5>
+            </div>
+            <div class="card card-text">
+                <h4 class="text-center">{{NotVerifiedClients}}</h4>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <br><br>
+<div class="container">
+    <div class="row">
+        <div class="col col-lg">
+            <label for="cars">Active clients</label>
+
+<select name="not verified" id="cars">
+    
+    {% for i in Act %}
+        
+    <option value="volvo">{{i.Name}}</option>
+    {% endfor %}
+        
+    
+</select>
+    <br><br>
+        </div>
+    
+        <div class="col col-lg">
+            <label for="cars">Not verified</label>
+
+<select name="not verified" id="cars">
+    
+    {% for i in NotV %}
+        
+    <option value="volvo">{{i.Name}}</option>
+    {% endfor %}
+        
+  
+</select>
+    <br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md">
+    
+            <div class="card card-head">
+                
+            </div>
+           
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>Customer</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+                    </tr>   
+                    
+                    {% for i in client %}
+                    <tr>
+                        <td>
+                            <!-- <a class="btn btn-sm btn-info" href="#">View</a> -->
+                        </td>
+                        <td>{{i.Name}}</td>
+                        <td>{{i.Phone}}</td>
+                        <td>{{i.Status}}</td>
+                    </tr>
+    
+                        
+                    {% endfor %}
+                        
+        </div> 
+    </div>
+        
+</div>
+</div>
+{% endblock Content %}
+    

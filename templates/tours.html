@@ -1,0 +1,74 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block Content %}
+{% csrf_token %}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col col-md">
+            <div class="card card-head bg-primary">
+                <h5 class=" text-center text-white">Total Tours</h5><br>
+                <h5 class=" text-center text-white">{{TotalTours}}</h5>
+            </div>
+
+        </div>
+
+        <div class="col col-md">
+            <div class="card card-head bg-info">
+                <h5 class=" text-center text-white">Ongoing</h5><br>
+                <h5 class=" text-center text-white">{{Ongoing}}</h5>
+            </div>
+
+        </div>
+        <div class="col col-md">
+            <div class="card card-head bg-success">
+                <h5 class=" text-center text-white">Completed</h5><br>
+                <h5 class=" text-center text-white">{{Completed}}</h5>
+            </div>
+
+        </div>
+        <div class="col col-md">
+            <div class="card card-head bg-danger">
+                <h5 class=" text-center text-white">Not Completed</h5><br>
+                <h5 class=" text-center text-white">{{NotCompleted}}</h5>
+            </div>
+
+        </div>
+
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="row">
+    
+
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="row">
+        <table class="table table-hover table-dark">
+            <th>Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th></th>
+            {% for i in TD %}
+            <tr>
+
+                <td>{{i.Name}}</td>
+                <td>{{i.DateStarted}}</td>
+                <td>{{i.DateCompleated}}</td>
+                <td>{{i.Status}}</td>  
+                <td>
+                    <a href="{% url 'tourdetails' i.id %}" class="btn btn-primary">View</a>
+                </td>
+            </tr>
+                {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+{% endblock Content %}

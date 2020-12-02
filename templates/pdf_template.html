@@ -1,0 +1,124 @@
+
+{% load static %}
+{% block Content %}
+  
+<style>
+        @page {
+            size: a4 portrait;
+
+            @frame header_frame {
+                /* Static Frame */
+                -pdf-frame-content: header_content;
+                left: 250pt;
+                width: 512pt;
+                top: 50pt;
+                height: 40pt;
+            }
+
+            @frame content_frame {
+                /* Content Frame */
+                left: 50pt;
+                width: 512pt;
+                top: 90pt;
+                height: 632pt;
+            }
+
+            @frame footer_frame {
+                /* Another static Frame */
+                -pdf-frame-content: footer_content;
+                left: 50pt;
+                width: 512pt;
+                top: 772pt;
+                height: 20pt;
+            }
+        }
+    </style>
+
+
+    <!-- Content for Static Frame 'header_frame' -->
+    <div id="header_content">
+        <h1>Nesara Tours</h1>
+    </div>
+
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content">(c) - page <pdf:pagenumber>
+            of <pdf:pagecount>
+    </div>
+
+    <!-- HTML Content -->
+    <h2>Total Branch:{{TotalBranch}}</h2>
+    <table>
+    <th><h2>Name</h2></th>
+    <th><h2>Phone</h2></th>
+    
+    {% for i in Branch %}
+    <tr>
+    <td>
+    <h4>
+    {{i.Name}}</td>
+    </h4>
+    <td>
+    <h4>
+    {{i.Phone}}
+    </h4>
+    </td>
+
+    </tr>
+        
+    {% endfor %}
+    
+    </table>
+    <br>
+        <hr>
+    <h2>Total Tours:{{TotalTours}}</h2>
+    <hr>
+    <table>
+    <th>Name</th>
+    <th>Branch</th>
+    <th>Status</th>
+    <th>Expences</th>
+    <th>Profit</th>
+
+    {% for i in Tour %}
+    <tr>
+    <td>{{i.Name}}</td>
+    <td>{{i.Branch}}</td>
+    <td>{{i.Status}}</td>
+    <td>{{i.Expences}}</td>
+    <td>{{i.Profit}}</td>
+    </tr>
+
+    {%endfor%}
+    </table>
+    <br>
+    <hr>
+    <h2>Total Employees:{{TotalEmployees}}</h2>
+    <table>
+    <th>Name</th>
+    <th>Branch</th>
+    <td>Email</td>
+    <td>Phone</td>
+    <td>Role</td>
+    {%for i in Emp %}
+    <tr>
+   <td>{{i.Name}}</td> 
+   <td>{{i.branch}}</td> 
+   <td>{{i.Email}}</td> 
+   <td>{{i.Phone}}</td> 
+   <td>{{i.role}}</td> 
+    </tr>
+
+    {%endfor%}
+    </table>
+
+    
+
+
+   
+
+    
+
+    
+
+
+    {% endblock Content %}

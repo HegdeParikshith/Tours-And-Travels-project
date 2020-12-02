@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block Content %}
+{% csrf_token %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-md">
+            <div class="card card-head">
+                <h5 class="card card-title">Employee: {{Employee.Name}}</h5>
+            </div>
+            <div class="card card-body">
+                <a href="#" class="btn btn-outline-primary">Update Details</a>
+                <hr>
+                <a href="#" class="btn btn-outline-success">Send memo</a>
+            </div>
+        </div> 
+            <div class="col col-md">
+                <div class="card card-head">
+                    <h4>Contact info:</h4>
+                    
+    
+                </div>
+                <div class="card card-title">
+                    <p>Email: {{Employee.Email}}</p>
+                    <hr>
+                    <p>Phone no: {{Employee.Phone}}</p>
+                    <hr>
+                    <p>Branch:{{Employee.branch}}</p>
+                </div>
+            </div>
+
+</div>
+ 
+   
+{% endblock Content %}

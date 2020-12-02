@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block Content %}
+
+<div class="container">
+    <div class="row">
+    
+     {% for i in branch %}
+    
+        <div class="col-md-4">
+            
+            <div class="card card-head">
+                <h5 class="card card-text">Branch: {{i.Name}}</h5>
+                <p class="card card-text">Phone: {{i.Phone}}</p>
+                <a href="{% url 'BRANCH' i.id %}" class="btn btn-primary">View</a>
+            </div>
+            
+        </div>
+        
+     {% endfor %}
+     <hr>
+    </div>
+</div>
+
+    
+{% endblock Content %}
+    

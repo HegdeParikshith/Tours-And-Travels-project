@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block Content %}
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col col-md">
+            <div class="card card-head bg-dark">
+                <h4 class="card-text  text-white">Name :{{branch.Name}}</h4>
+                <hr>
+                <h3 class="text-white ">Phone:{{branch.Phone}}</h3>
+
+            </div>
+        </div>
+
+        <div class="col col-md">
+            <div class="card card-head bg-dark">
+                <h4 class="card-text text-center text-white">Total Employees</h4>
+                <hr>
+                <h3 class="text-white text-center">{{Total}}</h3>
+
+            </div>
+        </div>
+
+        <div class="col col-md">
+            <div class="card card-head bg-dark">
+                <h4 class="card-text text-center text-white">Total Tours</h4>
+                <hr>
+                <h3 class="text-white text-center">{{TotalTour}}</h3>
+
+            </div>
+        </div>
+
+
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col col-md">
+                <h4 class="text-center text-dark">Employees</h4>
+    
+                
+                <table class="table bg-success">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    {% for i in List %}
+                    <tr class="text text-white">
+                        <td>{{i.Name}}</td>
+                        <td>{{i.Email}}</td>
+                        <td>{{i.Phone}}</td>
+                        <!-- <td> 
+                            <a href="url 'employee'" class="btn btn-primary" > View</a>
+                        </td> -->
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col col-md">
+                <h4 class="text-center">Tours</h4>
+                <table class="table bg-danger">
+                    <th>Name</th>
+                    <th>Destinations</th>
+                    <th>Expences</th>
+                    <th>Profits</th>
+                    {% for i in ListTour %}
+                      <tr>
+                          <td>{{i.Name}}</td>
+                          <td>{{i.Destinations}}</td>
+                          <td>{{i.Expences}}</td>
+                          <td>{{i.Profit}}</td>
+                      </tr>
+                        
+                    {% endfor %}
+
+                </table>
+
+                    
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock Content %}
+    
