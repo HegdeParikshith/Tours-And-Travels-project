@@ -1,3 +1,6 @@
+
+# Views which renders required data to the end points when you enter the path
+
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
@@ -15,14 +18,17 @@ from xhtml2pdf import pisa
 
 
 # Create your views here.
+
+# Detailed Touurs view
 def TourDetails(request,pk):
+    # This is used for when user click on the perticular tour it gives deatil of that tour using PrimaryKey(pk)
     TD = Tour.objects.all().filter(id=pk)
     context={
         'TD':TD
     }
     return render(request,'tourdetails.html',context)
 
-
+# Login page end point 
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('Home')
@@ -45,17 +51,19 @@ def logoutUser(request):
     logout(request)
     return redirect('login')
     
-        
+# Home page   
 def Home(request):
-    pck = Package.objects.all()
-    context = {'package':pck,}
-    return render(request,'Home.html',context)
+    pck = Package.objects.all() #pck = all the details reciedes in the package model / table
+    context = {'package':pck,} # context is used for send data to front end i.e Home.html
+    return render(request,'Home.html',context) #return render contains (request,pageToConnect,DataToPass)
 
+# Shows all the package available
 def Packages(request):
     pck = Package.objects.all()
     context={'package':pck}
-    return render(request, 'packages.html', context)
-    
+    return render(request, 'packages.html', context) 
+
+# Detailed view of the package 
 def ViewPackage(request, pk):
     ViewPack = Package.objects.get(id=pk)
     context = {
@@ -63,8 +71,8 @@ def ViewPackage(request, pk):
     }
     return render(request,'ViewPackage.html',context)
 
-@login_required(login_url='login')
-@allowed_users(allowed_roles=['Employee','Manager'])
+@login_required(login_url='login') #If you are logged in then only it allows Cust func to react
+@allowed_users(allowed_roles=['Employee','Manager']) #Authenticates using decorators.py
 def Cust(request):
     # emp=Employee.objects.all()
     client=Client.objects.all()
@@ -74,7 +82,7 @@ def Cust(request):
     NotV=client.filter(Status="Not verified")
     myFilter = ClientFilter(request.GET, queryset=client)
     Act=client.filter(Status="Active")
-    client = myFilter.qs
+    client = myFilter.qs #This is not working Fuck off
 
     
     context={
@@ -85,7 +93,7 @@ def Cust(request):
         'Act':Act,
         'myFilter':myFilter,
         'client': client
-    }
+    } #context is list of data which can be accsessed by variable names in front end
     return render(request, 'cust.html', context)
     
 @login_required(login_url='login')
@@ -161,7 +169,7 @@ def Tours(request):
     NotCompleted = tourdetails.filter(Status='Not complete').count()
     Ongoing = tourdetails.filter(Status='Ongoing').count()
     Filter = TourFilter(request.GET, queryset=tourdetails)
-    tourdetails = Filter.qs
+    Filter = Filter.qs
     
     
     context = {

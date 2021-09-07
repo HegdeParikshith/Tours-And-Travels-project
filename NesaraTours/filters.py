@@ -1,3 +1,6 @@
+
+# For filtering the data
+
 import django_filters
 from .models import *
 
@@ -10,7 +13,7 @@ class EmployeeFilter(django_filters.FilterSet):
 class TourFilter(django_filters.FilterSet):
     class Meta:
         models = Tour
-        fields = '__all__'
+        fields = '["Name","Branch"]'
 
 class ClientFilter(django_filters.FilterSet):
     class Meta:

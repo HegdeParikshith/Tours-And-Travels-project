@@ -1,3 +1,6 @@
+
+<!-- Clients page -->
+
 {% extends 'main.html' %}
 
 {% block Content %}
@@ -31,38 +34,7 @@
     </div>
     <hr>
     <br><br>
-<div class="container">
-    <div class="row">
-        <div class="col col-lg">
-            <label for="cars">Active clients</label>
 
-<select name="not verified" id="cars">
-    
-    {% for i in Act %}
-        
-    <option value="volvo">{{i.Name}}</option>
-    {% endfor %}
-        
-    
-</select>
-    <br><br>
-        </div>
-    
-        <div class="col col-lg">
-            <label for="cars">Not verified</label>
-
-<select name="not verified" id="cars">
-    
-    {% for i in NotV %}
-        
-    <option value="volvo">{{i.Name}}</option>
-    {% endfor %}
-        
-  
-</select>
-    <br><br>
-        </div>
-    </div>
     <div class="row">
         <div class="col col-md">
     

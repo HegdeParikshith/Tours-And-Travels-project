@@ -1,3 +1,6 @@
+
+# Database tables represented in calss format
+
 from django.db import models
 from django.contrib.auth.models import User,Group 
 
